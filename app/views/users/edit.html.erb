@@ -1,6 +1,16 @@
 <h1>Editing user</h1>
 
-<%= render 'form' %>
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+  <% content_for :avatar do %>
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.cropbox :avatar %><br>
+      <%= f.crop_preview :avatar, width: 300 %><br>
+    </div>
+  <% end %>
+
+  <%= render 'form', form: f %>
+<% end %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
