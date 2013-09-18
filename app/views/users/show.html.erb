@@ -14,8 +14,12 @@
 </p>
 
 <p>
-  <%= image_tag @user.avatar.url %>
+  <%= image_tag @user.avatar.url, class: 'cropper' %>
 </p>
+
+<div class="preview">
+  <%= image_tag @user.avatar.url %>
+</div>
 
 <p>
   <%= @user.avatar.url(:thumb) %>
